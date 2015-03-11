@@ -7,9 +7,13 @@
   = submit_tag "Search"
 
 - unless @flights.empty?
-  - @flights.each do |flight|
-    %ul
-      %li
-        = flight.from_airport.code
-        = flight.to_airport.code
-        = flight.start
+  %hr
+  = form_tag url_for(controller: "bookings", action: "new"), method: 'get' do
+    = hidden_field_tag :num_tickets, params[:num_tickets]
+
+    - @flights.each do |flight|
+      = radio_button_tag(:flight_id, flight.id)
+      = "From: #{flight.from_airport.code} To: #{flight.to_airport.code}"
+      = flight.start
+      %hr
+    = submit_tag "Book"
