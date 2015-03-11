@@ -1,0 +1,17 @@
+%h1 Booking Page
+
+%h3= "Flight Id: #{@flight.id}"
+%h3= "From: #{@flight.from_airport.code}"
+%h3= "To: #{@flight.to_airport.code}"
+%h3= "Date: #{@flight.start}"
+%hr
+
+= form_for(@booking) do |f|
+  = f.hidden_field :flight_id
+
+  = f.fields_for :passengers do |p|
+    = p.text_field :name
+    = p.text_field :email
+    %hr
+
+  = f.submit "Book Flight"

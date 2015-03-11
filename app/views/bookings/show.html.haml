@@ -1,0 +1,14 @@
+%h1 Booking Confirmation
+
+%h3= "Booking Id: #{@booking.id}"
+%h3= "Flight Id: #{@booking.flight.id}"
+%h3= "From: #{@booking.flight.from_airport.code}"
+%h3= "To: #{@booking.flight.to_airport.code}"
+%h3= "Date: #{@booking.flight.start}"
+%hr
+
+%h3 Passangers:
+%ol
+  -@booking.passengers.each do |p|
+    %li= "#{p.name} #{p.email}"
+    %hr
