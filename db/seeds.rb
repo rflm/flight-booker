@@ -16,6 +16,10 @@ ids = (1..8).to_a
 
 t = (1..30).to_a
 
+3.times do
+  Flight.create(from_airport_id: 1, to_airport_id: 2, start: 2.days.from_now)
+end
+
 99.times do
   f_id = ids.sample
   t_id = ids.sample
