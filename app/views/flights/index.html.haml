@@ -1,0 +1,7 @@
+%h1 Book your flight
+= form_tag("/", method: "get") do
+  = select_tag :from, options_from_collection_for_select(@airports, :code, :code)
+  = select_tag :to, options_from_collection_for_select(@airports, :code, :code)
+  = select_tag :start, options_for_select(@start_dates, :date)
+  = select_tag :num_tickets, options_for_select((1..4).to_a, :num_tickets)
+  = submit_tag "Search"
