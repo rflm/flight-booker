@@ -12,6 +12,10 @@ class Flight < ActiveRecord::Base
     all.collect { |f| [f.date_formatted, f.start.to_date] }.uniq.sort
   end
 
+  def self.to_airports
+    all.collect { |f| f.to_airport }.uniq
+  end
+
   def date_formatted
     start.strftime("%d/%m/%Y")
   end

@@ -1,0 +1,6 @@
+%h1 Date
+= form_tag("num_tickets", method: 'get') do
+	= hidden_field_tag :from_id, params[:from_id]
+	= hidden_field_tag :to_id, params[:to_id]
+	= select_tag :date, options_for_select(@dates, :date)
+	= submit_tag 'Next'

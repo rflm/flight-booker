@@ -1,0 +1,4 @@
+%h1 From
+= form_tag("to", method: 'get') do
+	= select_tag :from_id, options_from_collection_for_select(@airports, :id, :code)
+	= submit_tag 'Next'

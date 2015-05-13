@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  root 'flights#index'
+  get 'static_pages/home'
+  root 'static_pages#home'
 
-  get 'bookings/new' => 'bookings#new'
+  get 'flights/from'
+  get 'flights/to'
+  get 'flights/date'
+  get 'flights/num_tickets'
+  get 'flights/index'
 
   resources :bookings, only: [:new, :create, :show]
 
