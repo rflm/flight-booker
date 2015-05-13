@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :flight do |f|
-    f.from_airport_id 1
-    f.to_airport_id 2
+    f.from_airport Airport.create(code: 'SFO')
+    f.to_airport Airport.create(code: 'NYC')
   end
 end

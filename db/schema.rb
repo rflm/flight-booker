@@ -33,13 +33,6 @@ ActiveRecord::Schema.define(version: 20150311183430) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "passangers", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "passengers", force: true do |t|
     t.string   "name"
     t.string   "email"
