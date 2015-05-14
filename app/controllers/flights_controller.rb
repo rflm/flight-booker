@@ -1,6 +1,10 @@
 class FlightsController < ApplicationController
   def index
-    @flights = Flight.where(from_airport_id: params[:from_id], to_airport_id: params[:to_id], start: params[:date].to_date.beginning_of_day..params[:date].to_date.end_of_day).sort
+    date = params[:date].to_date
+    range = date.beginning_of_day..date.end_of_day
+    @flights = Flight.where(from_airport_id: params[:from_id],
+                            to_airport_id: params[:to_id],
+                            start: range).sort
   end
 
   def from
@@ -13,7 +17,8 @@ class FlightsController < ApplicationController
   end
 
   def date
-    matching_flights = Flight.where(from_airport_id: params[:from_id], to_airport_id: params[:to_id])
+    matching_flights = Flight.where(from_airport_id: params[:from_id],
+                                    to_airport_id: params[:to_id])
     @dates = matching_flights.dates
   end
 end

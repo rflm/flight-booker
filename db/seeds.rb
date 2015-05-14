@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-codes = ["SFO", "NYC", "CHI", "JKT", "LON", "MIL", "YMQ", "MOW"]
+codes = %w(SFO NYC CHI JKT LON MIL YMQ MOW)
 
 codes.each do |c|
   Airport.create(code: c)
@@ -24,9 +24,7 @@ end
   f_id = ids.sample
   t_id = ids.sample
 
-  while (t_id == f_id)
-    t_id =  ids.sample
-  end
+  t_id =  ids.sample while (t_id == f_id)
 
-  Flight.create(from_airport_id: f_id, to_airport_id: t_id, start: t.sample.days.from_now )
+  Flight.create(from_airport_id: f_id, to_airport_id: t_id, start: t.sample.days.from_now)
 end

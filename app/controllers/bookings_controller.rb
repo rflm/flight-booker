@@ -8,8 +8,8 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    if @booking.save       
-      redirect_to booking_path(@booking)     
+    if @booking.save
+      redirect_to booking_path(@booking)
     else
       render 'new'
     end
@@ -19,9 +19,10 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-   private
-    def booking_params
-      params.require(:booking).permit(:flight_id,
-                                      :passengers_attributes => [:name, :email] )
-    end
+  private
+
+  def booking_params
+    params.require(:booking).permit(:flight_id,
+                                    passengers_attributes: [:name, :email])
+  end
 end

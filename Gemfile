@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "haml-rails", "~> 0.8"
+gem 'haml-rails', '~> 0.8'
 gem 'bootstrap-sass', '~> 3.3.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -48,4 +48,3 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
 end
-
