@@ -8,10 +8,12 @@
 
 = form_for(@booking) do |f|
   = f.hidden_field :flight_id
-
   = f.fields_for :passengers do |p|
-    = p.text_field :name
-    = p.text_field :email
-    %hr
+    .form-group
+      = p.label :name
+      = p.text_field :name, class: "form-control"
+      = p.label :email
+      = p.text_field :email, class: "form-control"
+      %hr
 
-  = f.submit "Book Flight"
+  = f.submit "Book Flight", class: "btn btn-primary btn-lg"

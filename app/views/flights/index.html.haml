@@ -1,4 +1,4 @@
-%h1 Book your flight
+%h1 Select flight for booking
 = form_tag url_for(controller: "bookings", action: "new"), method: 'get' do
   = hidden_field_tag :num_tickets, params[:num_tickets]
 
@@ -7,4 +7,4 @@
     = "From: #{flight.from_airport.code} To: #{flight.to_airport.code}"
     = flight.start
     %hr
-  = submit_tag "Book"
+  = submit_tag "Book", class: "btn btn-primary btn-lg text-center", style: "margin-top: 20px"

@@ -1,4 +1,4 @@
 %h1 From
 = form_tag("to", method: 'get') do
-	= select_tag :from_id, options_from_collection_for_select(@airports, :id, :code)
-	= submit_tag 'Next'
+	= select_tag :from_id, options_from_collection_for_select(@airports, :id, :code), class: "form-control col-md-offset-3", style: "width: 500px"
+	= submit_tag 'Next', class: "btn btn-primary btn-lg text-center", style: "margin-top: 20px"

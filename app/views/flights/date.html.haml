@@ -2,5 +2,5 @@
 = form_tag("num_tickets", method: 'get') do
 	= hidden_field_tag :from_id, params[:from_id]
 	= hidden_field_tag :to_id, params[:to_id]
-	= select_tag :date, options_for_select(@dates, :date)
-	= submit_tag 'Next'
+	= select_tag :date, options_for_select(@dates, :date), class: "form-control col-md-offset-3", style: "width: 500px"
+	= submit_tag 'Next', class: "btn btn-primary btn-lg text-center", style: "margin-top: 20px"
