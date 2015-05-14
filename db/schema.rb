@@ -11,41 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_150_311_183_430) do
-  create_table 'airports', force: true do |t|
-    t.string 'code'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+ActiveRecord::Schema.define(version: 20150311183430) do
+
+  create_table "airports", force: true do |t|
+    t.string   "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'bookings', force: true do |t|
-    t.integer 'flight_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "bookings", force: true do |t|
+    t.integer  "flight_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'flights', force: true do |t|
-    t.integer 'from_airport_id'
-    t.integer 'to_airport_id'
-    t.datetime 'start'
-    t.datetime 'created_at',      null: false
-    t.datetime 'updated_at',      null: false
+  create_table "flights", force: true do |t|
+    t.integer  "from_airport_id"
+    t.integer  "to_airport_id"
+    t.datetime "start"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
-  create_table 'passengers', force: true do |t|
-    t.string 'name'
-    t.string 'email'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "passengers", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'tickets', force: true do |t|
-    t.integer 'booking_id'
-    t.integer 'passenger_id'
-    t.datetime 'created_at',   null: false
-    t.datetime 'updated_at',   null: false
+  create_table "tickets", force: true do |t|
+    t.integer  "booking_id"
+    t.integer  "passenger_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index 'tickets', ['booking_id'], name: 'index_tickets_on_booking_id'
-  add_index 'tickets', ['passenger_id'], name: 'index_tickets_on_passenger_id'
+  add_index "tickets", ["booking_id"], name: "index_tickets_on_booking_id"
+  add_index "tickets", ["passenger_id"], name: "index_tickets_on_passenger_id"
+
 end
